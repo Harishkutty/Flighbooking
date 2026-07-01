@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="edit-profile-container">
+
+    <div class="edit-profile-card">
+
+        <h2>Edit Profile</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="input-group">
+                <label>First Name</label>
+                <input type="text"
+                       name="fname"
+                       value="{{ request.user.first_name }}"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <label>Last Name</label>
+                <input type="text"
+                       name="lname"
+                       value="{{ request.user.last_name }}"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email"
+                       name="email"
+                       value="{{ request.user.email }}"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text"
+                       name="uname"
+                       value="{{ request.user.username }}"
+                       required>
+            </div>
+
+            <button type="submit">
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

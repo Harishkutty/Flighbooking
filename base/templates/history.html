@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="history-container">
+
+    <h1 class="history-title">📜 Booking History</h1>
+
+    {% for i in data %}
+
+    <div class="history-card">
+
+        <div class="history-header">
+            <h2>{{i.flight_company}}</h2>
+            <span>{{i.flight_no}}</span>
+        </div>
+
+        <div class="history-body">
+
+            <div class="details-section">
+                <h3>👤 Passenger Details</h3>
+
+                <div class="details-grid">
+                    <p><strong>Name:</strong> {{i.passenger_name}}</p>
+                    <p><strong>Email:</strong> {{i.email}}</p>
+                    <p><strong>Phone:</strong> {{i.phone_no}}</p>
+                    <p><strong>Age:</strong> {{i.age}}</p>
+                    <p><strong>Class:</strong> {{i.seat_class}}</p>
+                    <p><strong>Seat No:</strong> {{i.seat_no}}</p>
+                </div>
+            </div>
+
+            <div class="details-section">
+                <h3>✈️ Flight Details</h3>
+
+                <div class="details-grid">
+                    <p><strong>Flight:</strong> {{i.flight_name}}</p>
+                    <p><strong>From:</strong> {{i.from_city}}</p>
+                    <p><strong>To:</strong> {{i.to_city}}</p>
+                    <p><strong>Date:</strong> {{i.depature_date}}</p>
+                    <p><strong>Time:</strong> {{i.depature_time}}</p>
+                    <p><strong>Price:</strong> ₹{{i.price}}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="history-footer">
+            <a href="{% url 'hremove' i.id %}" class="delete-btn">Delete</a>
+            <a href="" class="update-btn">Update</a>
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <div class="empty-history">
+        <h2>No Bookings Found ✈️</h2>
+        <p>Your flight booking history will appear here.</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="profile-container">
+
+    <div class="profile-card">
+
+        <div class="profile-header">
+            <div class="profile-avatar">
+                {{ request.user.username|first|upper }}
+            </div>
+
+            <h2>{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+            <p>@{{ request.user.username }}</p>
+        </div>
+
+        <div class="profile-body">
+
+            <div class="profile-info">
+                <h4>Authentication Status</h4>
+                <p>{{ request.user.is_authenticated }}</p>
+            </div>
+
+            <div class="profile-info">
+                <h4>Username</h4>
+                <p>{{ request.user.username }}</p>
+            </div>
+
+            <div class="profile-info">
+                <h4>First Name</h4>
+                <p>{{ request.user.first_name }}</p>
+            </div>
+
+            <div class="profile-info">
+                <h4>Last Name</h4>
+                <p>{{ request.user.last_name }}</p>
+            </div>
+
+            <div class="profile-info">
+                <h4>Email</h4>
+                <p>{{ request.user.email }}</p>
+            </div>
+
+        </div>
+
+        <div class="profile-actions">
+            <a href="{% url 'edit_profile' %}" class="edit-btn">Edit Profile</a>
+            <a href="{% url 'logout_' %}" class="logout-btn">Logout</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

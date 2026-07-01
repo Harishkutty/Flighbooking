@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="outter-layer">
+    <div class="form-container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <h1>Plane ticket Booking</h1>
+            <h4>Flight Details</h4>
+            <hr>
+            <label for="">Flight Company:</label><br>
+            <input type="text" name="fcompany" id="" value="{{ data.flight_company }}"><br>
+
+            <label for="">Flight Name:</label> <br>
+            <input type="text" name="fname" id="" value="{{ data.flight_name }}"><br>
+
+            <label for="">Flight no:</label> <br>
+            <input type="number" name="fnumber" id="" value="{{ data.flight_no }}"><br>
+
+            <label for="">Form city:</label> <br>
+            <input type="text" name="fromcity" id="" value="{{ data.from_city }}"><br>
+
+            <label for="">To city:</label> <br>
+            <input type="text" name="tocity" id="" value="{{ data.to_city }}"><br>
+
+            <label for="">Depature Time:</label> <br>
+            <input type="time" name="deptime" id="" value="{{ data.depature_time }}"><br>
+
+            <label for="">Depature Date:</label> <br>
+            <input type="date" name="depdate" id="" value="{{ data.depature_date }}"><br>
+
+            <label for="">Price:</label> <br>
+            <input type="number" name="price" id="" value="{{ data.price }}"><br>
+
+            <h2>Personal Details</h2>
+            <hr>
+                <label for="">Name:</label> <br>
+                <input type="text" name="name" id="" required ><br>
+
+                <label for="">Email:</label> <br>
+                <input type="text" name="email" id="" required><br>
+
+                <label for="">Phone Number:</label> <br>
+                <input type="number" name="phnumber" id="" required><br>
+
+                <label for="">Adhaar Number:</label> <br>
+                <input type="number" name="adharnum" id="" required><br>
+
+                <label for="">Age:</label> <br>
+                <input type="number" name="age" id="" required><br>
+
+                <label for="">Seat Class:</label> <br>
+                <select name="class" id="">
+                    <option value="First class">First class</option>
+                    <option value="Buisness class">Business class</option>
+                    <option value="Economy">Economy</option>
+                </select><br>
+
+                <label for="">Seat number:</label> <br>
+                <input type="number" name="snumber" id="" required><br>
+
+                <button type="submit">Confirm Booking</button>  
+                
+        </form>
+    </div>
+</div>
+{% endblock %}

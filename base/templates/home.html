@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<center>
+    <div class="container">
+        <h2>✈️ Find Your Flight</h2>
+        <form class="search-form" method="GET">
+
+            <div class="search-group">
+                <label>From</label>
+                <input type="text" name="from_city" placeholder="Enter departure city">
+            </div>
+
+            <div class="search-group">
+                <label>To</label>
+                <input type="text" name="to_city" placeholder="Enter destination city">
+            </div>
+
+            <button type="submit">Search Flights</button>
+
+        </form>
+        {% for i in data %}
+        <div class="cards">
+            <div class="card1">
+                <h2>{{i.flight_company}}</h2>
+                <h2>{{i.flight_name}}</h2>
+                <h2>{{i.flight_no}}</h2>
+                <h2>From:{{i.from_city}} → To:{{i.to_city}}</h2>
+            </div>
+            <div class="card2">
+                <h3>Departure:{{i.depature_time}}</h3>
+                <h3>Date:{{i.depature_date}}</h3>
+                <h3>Price:{{i.price}}</h3>
+                <a href="{% url 'book' i.id %}">Book now</a>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+
+</center>
+{% endblock %}

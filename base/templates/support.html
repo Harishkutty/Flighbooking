@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="page-container">
+
+    <div class="page-card">
+
+        <h1>🎧 Support Center</h1>
+        <p class="subtitle">
+            We're here to help you with your flight bookings.
+        </p>
+
+        <div class="support-grid">
+
+            <div class="support-box">
+                <h3>📞 Phone Support</h3>
+                <p>+91 98765 43210</p>
+            </div>
+
+            <div class="support-box">
+                <h3>📧 Email Support</h3>
+                <p>support@quicksky.com</p>
+            </div>
+
+            <div class="support-box">
+                <h3>🕒 Working Hours</h3>
+                <p>24/7 Customer Service</p>
+            </div>
+
+            <div class="support-box">
+                <h3>📍 Office Address</h3>
+                <p>Chennai, Tamil Nadu, India</p>
+            </div>
+
+        </div>
+
+        <form class="support-form">
+
+            <h2>Contact Us</h2>
+
+            <input type="text" placeholder="Your Name" required>
+
+            <input type="email" placeholder="Your Email" required>
+
+            <textarea rows="5" placeholder="Describe your issue"></textarea>
+
+            <button type="submit">
+                Submit Request
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

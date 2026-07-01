@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="booking-container">
+
+    <h1 class="page-title">✈️ Booking Confirmed</h1>
+
+    {% for data in data %}
+
+    <div class="ticket-card">
+
+        <div class="ticket-header">
+            <h2>{{data.flight_company}}</h2>
+            <span>{{data.flight_no}}</span>
+        </div>
+
+        <div class="ticket-body">
+
+            <div class="section">
+                <h3>👤 Passenger Details</h3>
+
+                <div class="details-grid">
+                    <p><strong>Name:</strong> {{data.passenger_name}}</p>
+                    <p><strong>Email:</strong> {{data.email}}</p>
+                    <p><strong>Phone:</strong> {{data.phone_no}}</p>
+                    <p><strong>Age:</strong> {{data.age}}</p>
+                    <p><strong>Class:</strong> {{data.seat_class}}</p>
+                    <p><strong>Seat No:</strong> {{data.seat_no}}</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🛫 Flight Details</h3>
+
+                <div class="details-grid">
+                    <p><strong>Flight:</strong> {{data.flight_name}}</p>
+                    <p><strong>From:</strong> {{data.from_city}}</p>
+                    <p><strong>To:</strong> {{data.to_city}}</p>
+                    <p><strong>Date:</strong> {{data.depature_date}}</p>
+                    <p><strong>Time:</strong> {{data.depature_time}}</p>
+                    <p><strong>Price:</strong> ₹{{data.price}}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ticket-footer">
+            <a href="{% url 'remove' data.id %}" class="delete-btn">Delete</a>
+            <a href="" class="update-btn">Update</a>
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
